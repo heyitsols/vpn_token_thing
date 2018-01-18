@@ -2,7 +2,7 @@
 
 token_plain="$1"
 
-token_enc=$(echo $token_plain | gpg -ear <YOUR PGP KEY> | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/|/g')
+token_enc=$(echo $token_plain | gpg -ear <YOUR PGP KEY> | base64)
 
 post_data(){
 cat <<EOF
